@@ -1,7 +1,7 @@
 # Meme Generator
 You can create your own meme with this small project. Built with Vite, React, and Tailwind CSS.
 
-![This is an image](/assets/meme-generator.png)
+![This is an image](/src/assets/meme-generator.png)
 
 ## Features
 - Gets a meme image
