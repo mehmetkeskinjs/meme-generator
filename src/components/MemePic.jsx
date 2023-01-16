@@ -2,8 +2,8 @@ import React from 'react';
 
 function MemePic(props) {
   const memeTextStyle = {
-    'letter-spacing': '1px',
-    'text-shadow':
+    letterSpacing: '1px',
+    textShadow:
       '2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 0px 2px 0 #000, 2px 0px 0 #000, 0px -2px 0 #000, -2px 0px 0 #000, 2px 2px 5px #000',
   };
 

@@ -1,22 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import MemePic from './MemePic';
-import memesData from '../data/memesData';
 import noImage from '../assets/no-image.png';
 
 function GenerateMemeText() {
+  let API_URL = 'https://api.imgflip.com/get_memes';
+
   const [memeData, setMemeData] = useState({
     topText: '',
     bottomText: '',
     randomImg: noImage,
   });
 
+  const [allMemes, setAllMemes] = useState(memeData);
+
+  useEffect(() => {
+    fetch(API_URL)
+      .then((res) => res.json())
+      .then((data) => {
+        setAllMemes(data.data.memes);
+      });
+  }, []);
+
   function getMemeImg() {
-    const randomNum = Math.floor(Math.random() * 100);
-    const memes = memesData.data.memes;
+    const randomNum = Math.floor(Math.random() * allMemes.length);
     // set new image url to memeImg
     setMemeData((prevMemeData) => ({
       ...prevMemeData,
-      randomImg: memes[randomNum].url,
+      randomImg: allMemes[randomNum].url,
       topText: '',
       bottomText: '',
     }));
